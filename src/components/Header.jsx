@@ -27,7 +27,7 @@ class Header extends Component {
       <header className="bg-blue-600 sticky top-0 z-50 shadow-md">
         <div className="container mx-auto px-4 py-3 flex justify-between items-center md:px-10">
           <h1 className="text-white text-2xl font-bold ">
-            <Link to="/">
+            <Link to="/phoneShop/">
               <p className="flex gap-2">
                 <span>phoneShop</span>
                 <span>
@@ -38,7 +38,10 @@ class Header extends Component {
           </h1>
 
           <nav className="hidden md:flex space-x-8 items-center">
-            <Link to="/" className="text-white hover:text-blue-300 transition">
+            <Link
+              to="/phoneShop/"
+              className="text-white hover:text-blue-300 transition"
+            >
               Home
             </Link>
             <Link
