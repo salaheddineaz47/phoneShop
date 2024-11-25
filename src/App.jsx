@@ -42,7 +42,7 @@ class App extends Component {
         <Header cartItems={cartItems} />
         <Routes>
           <Route
-            path="/"
+            path="/phoneShop/"
             element={<ProductList onAddToCart={this.handleAddToCart} />}
           />
           <Route path="/cart" element={<Cart cartItems={cartItems} />} />
