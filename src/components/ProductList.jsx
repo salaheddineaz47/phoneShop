@@ -1,6 +1,6 @@
 import { Component } from "react";
 import Product from "./Product";
-import products from "../assets/Products";
+import products from "../../public/assets/Products";
 
 class ProductList extends Component {
   constructor(props) {

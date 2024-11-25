@@ -4,7 +4,7 @@ const products = [
     name: "Galaxy S20 plus",
     price: 2400,
     systeme: "android",
-    image: "src/assets/imgArticle/galaxys20plus.png",
+    image: "./assets/imgArticle/galaxys20plus.png",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit..",
   },
   {
@@ -12,7 +12,7 @@ const products = [
     name: "Huawei p40 black",
     price: 3000,
     systeme: "android",
-    image: "src/assets/imgArticle/huaweip40black.png",
+    image: "./assets/imgArticle/huaweip40black.png",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit..",
   },
   {
@@ -20,7 +20,7 @@ const products = [
     name: "Huawei p50 black",
     price: 2000,
     systeme: "android",
-    image: "src/assets/imgArticle/huaweip50black.png",
+    image: "./assets/imgArticle/huaweip50black.png",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit..",
   },
   {
@@ -28,7 +28,7 @@ const products = [
     name: "Huaweip 50 Gold",
     price: 15000,
     systeme: "android",
-    image: "src/assets/imgArticle/huaweip50gold.png",
+    image: "./assets/imgArticle/huaweip50gold.png",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit..",
   },
   {
@@ -36,7 +36,7 @@ const products = [
     name: "Iphone 12 black",
     systeme: "iphone",
     price: 1500,
-    image: "src/assets/imgArticle/iphone_12_black.png",
+    image: "./assets/imgArticle/iphone_12_black.png",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit..",
   },
   {
@@ -44,7 +44,7 @@ const products = [
     name: "Iphone 12 violet",
     systeme: "iphone",
     price: 1600,
-    image: "src/assets/imgArticle/Iphone12violet.jpeg",
+    image: "./assets/imgArticle/Iphone12violet.jpeg",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit..",
   },
   {
@@ -52,7 +52,7 @@ const products = [
     name: "IPhone 13 Green",
     systeme: "iphone",
     price: 1700,
-    image: "src/assets/imgArticle/iPhone13Green.jpeg",
+    image: "./assets/imgArticle/iPhone13Green.jpeg",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit..",
   },
   {
@@ -60,7 +60,7 @@ const products = [
     name: "Iphone 13 white",
     systeme: "iphone",
     price: 1800,
-    image: "src/assets/imgArticle/appleiphone13white.jpg",
+    image: "./assets/imgArticle/appleiphone13white.jpg",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit..",
   },
   {
@@ -68,7 +68,7 @@ const products = [
     name: "IPhone 12 red",
     systeme: "iphone",
     price: 3000,
-    image: "src/assets/imgArticle/AppleiPhone12red.png",
+    image: "./assets/imgArticle/AppleiPhone12red.png",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit..",
   },
   {
@@ -76,7 +76,7 @@ const products = [
     name: "IPhone 13 blue",
     systeme: "iphone",
     price: 4000,
-    image: "src/assets/imgArticle/iphone_13_blue.png",
+    image: "./assets/imgArticle/iphone_13_blue.png",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit..",
   },
   {
@@ -84,7 +84,7 @@ const products = [
     name: "IPhone 13 orange",
     systeme: "iphone",
     price: 4200,
-    image: "src/assets/imgArticle/iphone_13_orange.png",
+    image: "./assets/imgArticle/iphone_13_orange.png",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit..",
   },
   {
@@ -92,7 +92,7 @@ const products = [
     name: "Redmi Note 12 blue",
     systeme: "android",
     price: 4200,
-    image: "src/assets/imgArticle/RedmiNote12Blue.png",
+    image: "./assets/imgArticle/RedmiNote12Blue.png",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit..",
   },
   {
@@ -100,7 +100,7 @@ const products = [
     name: "Redmi Note 12 noir",
     systeme: "android",
     price: 3200,
-    image: "src/assets/imgArticle/RedmiNote12Noir.png",
+    image: "./assets/imgArticle/RedmiNote12Noir.png",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit..",
   },
   {
@@ -108,7 +108,7 @@ const products = [
     name: "Samsung Galaxy S22",
     systeme: "android",
     price: 3800,
-    image: "src/assets/imgArticle/SamsungGalaxyS22.png",
+    image: "./assets/imgArticle/SamsungGalaxyS22.png",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit..",
   },
   {
@@ -116,7 +116,7 @@ const products = [
     name: "Samsung S20 Ultra",
     systeme: "android",
     price: 4500,
-    image: "src/assets/imgArticle/SamsungS20Ultra.png",
+    image: "./assets/imgArticle/SamsungS20Ultra.png",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit..",
   },
 ];
