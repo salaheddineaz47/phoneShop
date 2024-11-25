@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import { Component } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -37,7 +37,6 @@ class Header extends Component {
             </Link>
           </h1>
 
-          {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8 items-center">
             <Link to="/" className="text-white hover:text-blue-300 transition">
               Home
@@ -56,7 +55,6 @@ class Header extends Component {
             </div>
           </nav>
 
-          {/* Mobile Menu Toggle */}
           <button
             className="md:hidden text-white focus:outline-none"
             onClick={this.toggleMenu}

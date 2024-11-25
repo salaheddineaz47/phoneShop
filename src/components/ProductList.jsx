@@ -1,80 +1,88 @@
-import React, { Component } from "react";
+import { Component } from "react";
 import Product from "./Product";
+import products from "../assets/Products";
 
 class ProductList extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedPriceRange: "all",
+      selectedSystem: "all",
+    };
+  }
+
+  handlePriceFilterChange = (event) => {
+    this.setState({ selectedPriceRange: event.target.value });
+  };
+
+  handleSystemFilterChange = (event) => {
+    this.setState({ selectedSystem: event.target.value });
+  };
+
+  filterProducts = (products) => {
+    const { selectedPriceRange, selectedSystem } = this.state;
+
+    let filteredProducts = products;
+    if (selectedPriceRange !== "all") {
+      const [min, max] = selectedPriceRange.split("-").map(Number);
+      filteredProducts = filteredProducts.filter(
+        (product) => product.price >= min && product.price <= max
+      );
+    }
+
+    if (selectedSystem !== "all") {
+      filteredProducts = filteredProducts.filter(
+        (product) =>
+          product.systeme.toLowerCase() === selectedSystem.toLowerCase()
+      );
+    }
+
+    return filteredProducts;
+  };
+
   render() {
     const { onAddToCart } = this.props;
-    const products = [
-      {
-        id: 1,
-        name: "Galaxy S20 plus",
-        price: 2400,
-        image: "src/assets/imgArticle/galaxys20plus.png",
-        description:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit..",
-      },
-      {
-        id: 2,
-        name: "Huawei p40 black",
-        price: 3000,
-        image: "src/assets/imgArticle/huaweip40black.png",
-        description:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit..",
-      },
-      {
-        id: 3,
-        name: "Huawei p50 black",
-        price: 2000,
-        image: "src/assets/imgArticle/huaweip50black.png",
-        description:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit..",
-      },
-      {
-        id: 4,
-        name: "Huaweip 50 Gold",
-        price: 15000,
-        image: "src/assets/imgArticle/huaweip50gold.png",
-        description:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit..",
-      },
-      {
-        id: 5,
-        name: "Iphone 12 black",
-        price: 1500,
-        image: "src/assets/imgArticle/iphone_12_black.png",
-        description:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit..",
-      },
-      {
-        id: 6,
-        name: "Iphone 12 violet",
-        price: 1600,
-        image: "src/assets/imgArticle/Iphone12violet.jpeg",
-        description:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit..",
-      },
-      {
-        id: 7,
-        name: "IPhone 13 Green",
-        price: 1700,
-        image: "src/assets/imgArticle/iPhone13Green.jpeg",
-        description:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit..",
-      },
-      {
-        id: 8,
-        name: "Iphone 13 white",
-        price: 1800,
-        image: "src/assets/imgArticle/appleiphone13white.jpg",
-        description:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit..",
-      },
-    ];
+
+    const filteredProducts = this.filterProducts(products);
 
     return (
       <div className="container mx-auto p-4">
+        <div className="mb-4 flex gap-4">
+          <div>
+            <label htmlFor="priceFilter" className="mr-2 font-semibold">
+              Filter by prix :
+            </label>
+            <select
+              className="bg-[#eee] p-2"
+              id="priceFilter"
+              value={this.state.selectedPriceRange}
+              onChange={this.handlePriceFilterChange}
+            >
+              <option value="all">All prices</option>
+              <option value="0-1500">0 - 1500</option>
+              <option value="1501-2000">1501 - 2000</option>
+              <option value="2001-3000">2001 - 3000</option>
+              <option value="3001-15000">3001 and more</option>
+            </select>
+          </div>
+          <div>
+            <label htmlFor="systemFilter" className="mr-2 font-semibold">
+              Filter by system :
+            </label>
+            <select
+              className="bg-[#eee] p-2"
+              id="systemFilter"
+              value={this.state.selectedSystem}
+              onChange={this.handleSystemFilterChange}
+            >
+              <option value="all">All systems</option>
+              <option value="android">Android</option>
+              <option value="iphone">iPhone</option>
+            </select>
+          </div>
+        </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {products.map((product) => (
+          {filteredProducts.map((product) => (
             <Product
               key={product.id}
               product={product}
