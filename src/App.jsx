@@ -35,6 +35,10 @@ class App extends Component {
         document.body.classList.remove("dark");
       }
     }
+
+    if (prevState.cartItems !== this.state.cartItems) {
+      localStorage.setItem("cartItems", JSON.stringify(this.state.cartItems));
+    }
   }
 
   componentDidMount() {
@@ -46,6 +50,11 @@ class App extends Component {
       if (mode.darkMode) {
         document.body.classList.add("dark");
       }
+    }
+
+    const savedCartItems = JSON.parse(localStorage.getItem("cartItems"));
+    if (savedCartItems) {
+      this.setState({ cartItems: savedCartItems });
     }
 
     toast(
@@ -73,32 +82,43 @@ class App extends Component {
       this.notify("error", "Choose a valid Quantity");
       return;
     }
+
     this.setState((prevState) => {
       const existingItem = prevState.cartItems.find(
         (item) => item.id === product.id
       );
+
+      let updatedCartItems;
       if (existingItem) {
-        return {
-          cartItems: prevState.cartItems.map((item) =>
-            item.id === product.id
-              ? { ...item, quantity: item.quantity + qt }
-              : item
-          ),
-        };
+        updatedCartItems = prevState.cartItems.map((item) =>
+          item.id === product.id
+            ? { ...item, quantity: item.quantity + qt }
+            : item
+        );
       } else {
-        return {
-          cartItems: [...prevState.cartItems, { ...product, quantity: qt }],
-        };
+        updatedCartItems = [
+          ...prevState.cartItems,
+          { ...product, quantity: qt },
+        ];
       }
+
+      localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
+
+      return { cartItems: updatedCartItems };
     });
   };
 
   handleRemoveCartItem = (id) => {
     this.setState((prevState) => {
-      return {
-        cartItems: prevState.cartItems.filter((item) => item.id !== id),
-      };
+      const updatedCartItems = prevState.cartItems.filter(
+        (item) => item.id !== id
+      );
+
+      localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
+
+      return { cartItems: updatedCartItems };
     });
+
     this.notify("warn", "Item successfully removed");
   };
 

@@ -25,6 +25,7 @@ class ProductItem extends Component {
 
   handleAddToCart = () => {
     this.props.onAddToCart(this.props.product, this.state.quantity);
+    if (this.state.quantity === 0) return;
     this.setState({ quantity: 0 });
     this.props.handleNotification();
   };
