@@ -1,11 +1,9 @@
 import { Component } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faShoppingCart,
-  faBars,
-  faMobileAlt,
-} from "@fortawesome/free-solid-svg-icons";
+import ButtonDarkLightToggle from "./ButtonDarkLightToggle";
+import { faBars, faMobileAlt } from "@fortawesome/free-solid-svg-icons";
+import ButtonCart from "./ButtonCart";
 
 class Header extends Component {
   constructor(props) {
@@ -20,14 +18,17 @@ class Header extends Component {
   };
 
   render() {
-    const { cartItems } = this.props;
+    const { cartItems, toggleDarkMode } = this.props;
     const { isMenuOpen } = this.state;
 
     return (
       <header className="bg-blue-600 sticky top-0 z-50 shadow-md">
         <div className="container mx-auto px-4 py-3 flex justify-between items-center md:px-10">
-          <h1 className="text-white text-2xl font-bold ">
-            <Link to="/phoneShop/">
+          <h1 className="text-white text-2xl font-bold mr-auto">
+            <Link
+              to="/phoneShop/"
+              // to="/"
+            >
               <p className="flex gap-2">
                 <span>phoneShop</span>
                 <span>
@@ -37,64 +38,70 @@ class Header extends Component {
             </Link>
           </h1>
 
-          <nav className="hidden md:flex space-x-8 items-center">
-            <Link
-              to="/phoneShop/"
-              className="text-white hover:text-blue-300 transition"
-            >
-              Home
-            </Link>
-            <Link
-              to="/cart"
-              className="relative text-white hover:text-blue-300 transition"
-            >
-              Cart
-            </Link>
-            <div className="relative text-white">
-              <FontAwesomeIcon icon={faShoppingCart} size="lg" />
-              <span className="absolute -bottom-4 -right-3 bg-red-500 text-white text-xs font-bold rounded-full px-2 py-0.5">
-                {cartItems?.length}
-              </span>
-            </div>
-          </nav>
-
-          <button
-            className="md:hidden text-white focus:outline-none"
-            onClick={this.toggleMenu}
-          >
-            <FontAwesomeIcon icon={faBars} size="lg" />
-          </button>
-
-          {isMenuOpen && (
-            <div className="md:hidden absolute top-full left-0 right-0 bg-blue-600 text-white shadow-lg">
+          <div className="flex gap-2  items-center justify-center">
+            <nav className="hidden md:flex space-x-8  items-center">
               <Link
-                to="/"
-                className="block px-4 py-2 hover:bg-blue-700 transition"
-                onClick={this.toggleMenu}
+                to="/phoneShop/"
+                // to="/"
+                className="text-white hover:text-blue-300 transition"
               >
                 Home
               </Link>
               <Link
-                to="/cart"
-                className="block px-4 py-2 hover:bg-blue-700 transition relative"
-                onClick={this.toggleMenu}
+                to="/phoneShop/cart"
+                className="relative text-white hover:text-blue-300 transition"
               >
                 Cart
-                <span className="absolute -top-0 left-11 bg-red-500 text-white text-xs font-bold rounded-full px-2 py-0  ">
-                  {cartItems?.length}
-                </span>
               </Link>
-            </div>
-          )}
 
-          <Link to="/cart" className="md:hidden relative text-white ml-4">
-            <div className="relative">
-              <FontAwesomeIcon icon={faShoppingCart} size="lg" />
-              <span className="absolute -bottom-2 -right-4 bg-red-500 text-white text-xs font-bold rounded-full px-2 py-0.5">
+              <ButtonCart className="-bottom-4 -right-3">
                 {cartItems?.length}
-              </span>
-            </div>
-          </Link>
+              </ButtonCart>
+
+              <ButtonDarkLightToggle onClick={toggleDarkMode} />
+            </nav>
+
+            {/* ********** Small Screen Width ************ */}
+            {isMenuOpen && (
+              <div className="md:hidden absolute top-full left-0 right-0 bg-blue-600 text-white shadow-lg">
+                <Link
+                  to="/phoneShop/"
+                  // to="/"
+                  className="block px-4 py-2 hover:bg-blue-700 transition"
+                  onClick={this.toggleMenu}
+                >
+                  Home
+                </Link>
+                <Link
+                  to="/phoneShop/cart"
+                  className="block px-4 py-2 hover:bg-blue-700 transition relative"
+                  onClick={this.toggleMenu}
+                >
+                  Cart
+                </Link>
+              </div>
+            )}
+
+            <ButtonDarkLightToggle
+              className="md:hidden"
+              onClick={toggleDarkMode}
+            />
+
+            <Link
+              to="/phoneShop/cart"
+              className="md:hidden relative text-white ml-4 hover:text-slate-300"
+            >
+              <ButtonCart className="-bottom-2 -right-4">
+                {cartItems?.length}
+              </ButtonCart>
+            </Link>
+            <button
+              className="md:hidden text-white focus:outline-none hover:text-slate-300"
+              onClick={this.toggleMenu}
+            >
+              <FontAwesomeIcon icon={faBars} className="text-[1.5rem] ml-6 " />
+            </button>
+          </div>
         </div>
       </header>
     );

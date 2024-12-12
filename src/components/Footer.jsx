@@ -4,7 +4,7 @@ import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 class Footer extends Component {
   render() {
     return (
-      <footer className="bg-gray-800 text-white py-16">
+      <footer className="bg-gray-100 dark:bg-gray-800 dark:text-white py-16 transition-colors duration-200">
         <div className="container mx-auto px-6 lg:flex lg:justify-between">
           <div className="mb-8 lg:mb-0">
             <h2 className="text-3xl font-bold">phoneShop</h2>
@@ -15,27 +15,27 @@ class Footer extends Component {
             <h4 className="text-lg font-semibold">Quick Links</h4>
             <ul className="space-y-2 mt-4">
               <li>
-                <a href="/" className="hover:text-gray-400">
+                <a href="/" className="hover:text-gray-600">
                   Home
                 </a>
               </li>
               <li>
-                <a href="/products" className="hover:text-gray-400">
+                <a href="/products" className="hover:text-gray-600">
                   Products
                 </a>
               </li>
               <li>
-                <a href="/cart" className="hover:text-gray-400">
+                <a href="/cart" className="hover:text-gray-600">
                   Cart
                 </a>
               </li>
               <li>
-                <a href="/about" className="hover:text-gray-400">
+                <a href="/about" className="hover:text-gray-600">
                   About Us
                 </a>
               </li>
               <li>
-                <a href="/contact" className="hover:text-gray-400">
+                <a href="/contact" className="hover:text-gray-600">
                   Contact
                 </a>
               </li>
@@ -48,7 +48,7 @@ class Footer extends Component {
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-gray-400"
+                className="dark:text-white text-slate-900 hover:text-slate-700 dark:hover:text-gray-400"
               >
                 <FaFacebook size={24} />
               </a>
@@ -56,7 +56,7 @@ class Footer extends Component {
                 href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-gray-400"
+                className="dark:text-white text-slate-900 hover:text-slate-700 dark:hover:text-gray-400"
               >
                 <FaTwitter size={24} />
               </a>
@@ -64,7 +64,7 @@ class Footer extends Component {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-gray-400"
+                className="dark:text-white text-slate-900 hover:text-slate-700 dark:hover:text-gray-400"
               >
                 <FaInstagram size={24} />
               </a>
@@ -72,7 +72,7 @@ class Footer extends Component {
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-gray-400"
+                className="dark:text-white text-slate-900 hover:text-slate-700 dark:hover:text-gray-400"
               >
                 <FaLinkedin size={24} />
               </a>
@@ -80,7 +80,7 @@ class Footer extends Component {
           </div>
         </div>
 
-        <div className="text-center mt-8 text-sm text-gray-400">
+        <div className="text-center mt-8 text-sm text-slate-700 dark:text-gray-400">
           <p>Made with ❤️ by Salah Eddine</p>
         </div>
 
