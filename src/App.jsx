@@ -165,6 +165,7 @@ class App extends Component {
                 cartItems={cartItems}
                 handleRemoveCartItem={this.handleRemoveCartItem}
                 onAddToCart={this.handleAddToCart}
+                handleNotification={this.notify}
               />
             }
           />

@@ -9,7 +9,8 @@ const hotProducts = products.filter((pr) => [9, 13, 4].includes(pr.id));
 
 class Cart extends Component {
   render() {
-    const { cartItems, handleRemoveCartItem, onAddToCart } = this.props;
+    const { cartItems, handleRemoveCartItem, onAddToCart, handleNotification } =
+      this.props;
     const totalPrice = cartItems.reduce(
       (total, item) => total + item.price * item.quantity,
       0
@@ -66,6 +67,7 @@ class Cart extends Component {
                       key={prod.id}
                       item={prod}
                       onAddToCart={onAddToCart}
+                      handleNotification={handleNotification}
                     />
                   ))}
                 </div>

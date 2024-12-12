@@ -4,6 +4,7 @@ import ButtonAddCart from "./ButtonAddCart";
 export default class HotProductItem extends Component {
   handleAddToCart = () => {
     this.props.onAddToCart(this.props.item, 1);
+    this.props.handleNotification();
   };
 
   render() {
